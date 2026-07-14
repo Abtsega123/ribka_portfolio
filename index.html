@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ribka Tiruneh — AI Engineer, Deep Learning &amp; Robotics</title>
+<meta name="description" content="Deep learning engineer specializing in transformer architectures, spiking neural networks, and real-time production ML systems. M.S. Electrical Engineering, George Washington University.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink:        #0F1B2D;
+    --ink-mid:    #16263D;
+    --surface:    #1C2D45;
+    --surface-2:  #22324A;
+    --paper:      #F7F5F0;
+    --paper-dim:  #EAE6DC;
+    --slate:      #8A9BA8;
+    --slate-dim:  #5E6E7C;
+    --sage:       #6E8E80;
+    --sage-bright:#8FB3A3;
+    --brick:      #C4452E;
+    --brick-dim:  #9A3A28;
+    --hairline:   rgba(247,245,240,0.12);
+    --hairline-dark: rgba(15,27,45,0.12);
+
+    --font-display: 'Source Serif 4', Georgia, serif;
+    --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+
+    --max-w: 1080px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  ::selection { background: var(--sage); color: var(--paper); }
+
+  :focus-visible {
+    outline: 2px solid var(--brick);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247,245,240,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--hairline-dark);
+  }
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-mark {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .nav-mark span { color: var(--brick); }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+  .nav-links a {
+    color: var(--slate-dim);
+    transition: color 0.15s ease;
+    position: relative;
+    padding-bottom: 2px;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-toggle { display: none; }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+    .nav-toggle {
+      display: block;
+      background: none;
+      border: 1px solid var(--hairline-dark);
+      border-radius: 4px;
+      padding: 6px 10px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--hairline-dark);
+      padding: 16px 32px 24px;
+      gap: 16px;
+    }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 96px 0 88px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--hairline) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+    background-size: 48px 48px;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage-bright);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--sage-bright);
+    box-shadow: 0 0 0 3px rgba(143,179,163,0.18);
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    max-width: 13ch;
+  }
+
+  .hero-role {
+    margin-top: 18px;
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--slate);
+    font-weight: 400;
+    max-width: 38ch;
+  }
+  .hero-role .accent { color: var(--sage-bright); font-weight: 500; }
+
+  .terminal-rule {
+    margin: 28px 0 32px;
+    width: 220px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--sage-bright), transparent);
+    position: relative;
+  }
+  .terminal-rule::after {
+    content: "";
+    position: absolute;
+    right: -2px; top: -3px;
+    width: 8px; height: 8px;
+    background: var(--sage-bright);
+    animation: blink 1.4s steps(2) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .hero-summary {
+    max-width: 62ch;
+    color: var(--paper-dim);
+    font-size: 1.02rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin-top: 32px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .hero-meta a, .hero-meta span {
+    color: var(--slate);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border: 1px solid var(--hairline);
+    border-radius: 3px;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .hero-meta a:hover {
+    border-color: var(--sage-bright);
+    color: var(--paper);
+  }
+
+  /* ===== SECTION SCAFFOLDING ===== */
+  section { padding: 80px 0; }
+  section:nth-of-type(even) { background: var(--paper-dim); }
+
+  .section-head {
+    margin-bottom: 44px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .section-tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brick-dim);
+    border: 1px solid currentColor;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .section-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .section-sub {
+    color: var(--slate-dim);
+    font-size: 0.95rem;
+    max-width: 60ch;
+    margin-top: -28px;
+    margin-bottom: 36px;
+  }
+
+  /* ===== SKILLS ===== */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 40px;
+  }
+  @media (max-width: 720px) { .skills-grid { grid-template-columns: 1fr; } }
+
+  .skill-group {
+    border-top: 2px solid var(--ink);
+    padding-top: 16px;
+  }
+  .skill-group.priority { border-top-color: var(--brick); }
+  .skill-group-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+  }
+  .skill-group h3 {
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+    font-weight: 600;
+  }
+  .skill-weight {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--slate-dim);
+    letter-spacing: 0.04em;
+  }
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    padding: 5px 10px;
+    border: 1px solid var(--hairline-dark);
+    border-radius: 3px;
+    color: var(--ink);
+    background: var(--paper);
+  }
+  .skill-group.priority .chip {
+    border-color: rgba(196,69,46,0.3);
+  }
+
+  /* ===== EXPERIENCE ===== */
+  .timeline { position: relative; }
+  .tl-item {
+    position: relative;
+    padding: 0 0 40px 28px;
+    border-left: 1px solid var(--hairline-dark);
+  }
+  .tl-item:last-child { border-left-color: transparent; padding-bottom: 0; }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -5px; top: 4px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--paper-dim);
+    border: 2px solid var(--slate-dim);
+  }
+  .tl-item.flagship::before {
+    background: var(--brick);
+    border-color: var(--brick);
+  }
+  .tl-item.flagship { border-left-color: rgba(196,69,46,0.35); }
+
+  .tl-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-bottom: 4px;
+  }
+  .tl-role {
+    font-weight: 600;
+    font-size: 1.04rem;
+  }
+  .tl-org { color: var(--slate-dim); font-weight: 400; }
+  .tl-date {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--slate-dim);
+    white-space: nowrap;
+  }
+  .tl-loc {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--sage);
+    margin-bottom: 10px;
+  }
+  .tl-item ul { padding-left: 18px; }
+  .tl-item li {
+    font-size: 0.95rem;
+    color: var(--ink-mid, var(--ink));
+    margin-bottom: 6px;
+  }
+  .tl-item li::marker { color: var(--slate-dim); }
+  .metric {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--brick-dim);
+  }
+
+  /* ===== PROJECTS ===== */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 720px) { .project-grid { grid-template-columns: 1fr; } }
+
+  .project-card {
+    background: var(--paper);
+    border: 1px solid var(--hairline-dark);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .project-card:hover { border-color: var(--sage); transform: translateY(-2px); }
+
+  .project-shot {
+    aspect-ratio: 16/9;
+    background:
+      repeating-linear-gradient(45deg, var(--paper-dim) 0 10px, var(--paper) 10px 20px);
+    border-bottom: 1px solid var(--hairline-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--slate-dim);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .project-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
+  .project-tag-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .project-domain {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+  .project-link {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--slate-dim);
+    border: 1px solid var(--hairline-dark);
+    border-radius: 3px;
+    padding: 3px 9px;
+    transition: all 0.15s ease;
+  }
+  .project-link:hover { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+
+  .project-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.12rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .project-card p {
+    font-size: 0.92rem;
+    color: var(--ink-mid, var(--ink));
+    margin-bottom: 14px;
+    flex: 1;
+  }
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--slate-dim);
+  }
+  .project-stack span {
+    border: 1px solid var(--hairline-dark);
+    padding: 2px 7px;
+    border-radius: 2px;
+  }
+
+  /* ===== PUBLICATIONS ===== */
+  #research .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  #research .pub-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 22px 24px 22px 20px;
+    background: #FDFCF8;
+    border: 1px solid rgba(40,49,63,0.10);
+    border-left: 4px solid #7C9A92;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+
+  #research .pub-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(40,49,63,0.09);
+    border-color: rgba(40,49,63,0.16);
+  }
+
+  #research .pub-ieee       { border-left-color: #4E7A9E; }
+  #research .pub-thesis     { border-left-color: #C99A3B; }
+
+  #research .pub-index {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: rgba(40,49,63,0.14);
+    line-height: 1;
+    min-width: 44px;
+    padding-top: 2px;
+    user-select: none;
+  }
+
+  #research .pub-main { flex: 1; min-width: 0; }
+
+  #research .pub-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  #research .pub-status {
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    background: rgba(124,154,146,0.16);
+    color: #4a685f;
+  }
+
+  #research .pub-publisher {
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(40,49,63,0.45);
+  }
+
+  #research .pub-item h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+    line-height: 1.35;
+    color: #28313F;
+    font-family: var(--font-display);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 7px;
+  }
+
+  #research .pub-ext {
+    color: #C1552F;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translate(-2px, 2px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+
+  #research .pub-item:hover .pub-ext {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  #research .pub-venue {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: rgba(40,49,63,0.6);
+  }
+
+  #research .pub-cite {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    align-self: center;
+    padding: 8px 14px;
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    color: #28313F;
+    background: transparent;
+    border: 1px solid rgba(40,49,63,0.18);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  #research .pub-cite:hover {
+    background: rgba(40,49,63,0.05);
+    border-color: rgba(40,49,63,0.3);
+  }
+
+  #research .pub-cite.copied {
+    background: #7C9A92;
+    border-color: #7C9A92;
+    color: #FDFCF8;
+  }
+
+  @media (max-width: 640px) {
+    #research .pub-item { flex-wrap: wrap; padding: 18px; }
+    #research .pub-cite { order: 3; margin-left: 66px; }
+  }
+
+  /* ===== HIGHLIGHTS ===== */
+  .cert-cols {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 720px) { .cert-cols { grid-template-columns: 1fr; gap: 32px; } }
+  .cert-cols h3 {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--slate-dim);
+    margin-bottom: 16px;
+  }
+  .cert-list, .award-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .cert-list li, .award-list li {
+    font-size: 0.93rem;
+    padding-left: 18px;
+    position: relative;
+  }
+  .cert-list li::before { content: "▸"; position: absolute; left: 0; color: var(--sage); }
+  .award-list li::before { content: "▸"; position: absolute; left: 0; color: var(--brick-dim); }
+
+  /* ===== CONTACT / FOOTER ===== */
+  .contact {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 88px 0 56px;
+  }
+  .contact .section-tag { color: var(--sage-bright); }
+  .contact h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+    font-weight: 600;
+    max-width: 16ch;
+    margin-bottom: 16px;
+  }
+  .contact p { color: var(--slate); max-width: 52ch; margin-bottom: 32px; }
+
+  .case-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    margin-bottom: 48px;
+    overflow: hidden;
+  }
+  .case-stat {
+    background: var(--surface);
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .case-num {
+    font-family: var(--font-display);
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: var(--sage-bright);
+    line-height: 1;
+  }
+  .case-label {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+  @media (max-width: 640px) {
+    .case-strip { grid-template-columns: 1fr; }
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+  .contact-link {
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    padding: 16px 18px;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+  }
+  .contact-link:hover { border-color: var(--sage-bright); background: var(--surface); transform: translateY(-2px); }
+  .contact-link .label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage-bright);
+    margin-bottom: 6px;
+  }
+  .contact-link .value { font-size: 0.95rem; color: var(--paper-dim); overflow-wrap: anywhere; word-break: normal; }
+
+  .footer-bar {
+    border-top: 1px solid var(--hairline);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--slate-dim);
+  }
+
+  /* ===== shared utility ===== */
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">RT<span>_</span></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">MENU</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#highlights">Highlights</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <p class="eyebrow">M.S. Electrical Engineering · George Washington University</p>
+    <h1>Ribka Tiruneh</h1>
+    <p class="hero-role">AI Engineer <span class="accent">— Deep Learning / Robotics</span></p>
+    <div class="terminal-rule"></div>
+
+    <p class="hero-summary">
+      Deep learning engineer with hands-on PyTorch and NumPy experience training and fine-tuning neural
+      networks — transformer architectures, attention mechanisms, and spiking neural networks — from
+      representation learning through production deployment.
+    </p>
+
+    <div class="hero-meta">
+      <a href="mailto:ribka61t@gmail.com">EMAIL</a>
+      <a href="tel:+15712909455">+1 (571) 290-9455</a>
+      <a href="https://ribka.com" target="_blank" rel="noopener">RIBKA.COM</a>
+      <a href="https://github.com/ribkatam" target="_blank" rel="noopener">GITHUB</a>
+      <span>Washington, D.C. — Remote-ready</span>
+    </div>
+  </div>
+</header>
+
+<section id="summary">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">[Profile]</span>
+      <h2>Summary</h2>
+    </div>
+    <p style="max-width: 68ch; font-size: 1.02rem;">
+      Deep learning engineer with hands-on PyTorch and NumPy experience training and fine-tuning neural
+      networks — transformer architectures, attention mechanisms, and spiking neural networks — from
+      representation learning through production deployment. Background spans graduate research on
+      biologically-inspired neural systems, production LLM serving infrastructure, and applied reinforcement
+      learning, with a consistent focus on the mechanics of how neural systems learn, represent, and retrieve
+      structure from data. Seeking AI engineering roles in deep learning, robotics, and applied ML research.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">[Capabilities]</span>
+      <h2>Skills &amp; Domain Expertise</h2>
+    </div>
+
+    <p class="section-sub">
+      Deep learning is my primary specialization, complemented by production ML systems,
+      applied research tooling, and low-latency deployment engineering.
+    </p>
+
+    <div class="skills-grid">
+
+      <div class="skill-group priority">
+        <div class="skill-group-label">
+          <h3>Deep Learning</h3>
+          <span class="skill-weight">PRIMARY FOCUS</span>
+        </div>
+
+        <div class="chip-row">
+          <span class="chip">Neural Network Architectures</span>
+          <span class="chip">Transformer / Attention Models</span>
+          <span class="chip">Spiking Neural Networks</span>
+          <span class="chip">Sequence Models</span>
+          <span class="chip">Representation Learning</span>
+          <span class="chip">Training Dynamics &amp; Optimization</span>
+          <span class="chip">Fine-Tuning LLMs (Llama 3)</span>
+          <span class="chip">Reinforcement Learning</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">
+          <h3>Programming</h3>
+          <span class="skill-weight">SUPPORTING</span>
+        </div>
+
+        <div class="chip-row">
+          <span class="chip">Python (NumPy, PyTorch)</span>
+          <span class="chip">C++</span>
+          <span class="chip">C</span>
+          <span class="chip">MATLAB</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Git</span>
+          <span class="chip">Linux</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">
+          <h3>ML / Data Tooling</h3>
+          <span class="skill-weight">SUPPORTING</span>
+        </div>
+
+        <div class="chip-row">
+          <span class="chip">PyTorch</span>
+          <span class="chip">NumPy</span>
+          <span class="chip">SciPy</span>
+          <span class="chip">Torchaudio</span>
+          <span class="chip">Librosa</span>
+          <span class="chip">spaCy</span>
+          <span class="chip">NLTK</span>
+          <span class="chip">LlamaIndex</span>
+          <span class="chip">Statistical Modeling</span>
+          <span class="chip">Feature Engineering</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">
+          <h3>Production Systems</h3>
+          <span class="skill-weight">SUPPORTING</span>
+        </div>
+
+        <div class="chip-row">
+          <span class="chip">FastAPI</span>
+          <span class="chip">Starlette WebSocket</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">GCP</span>
+          <span class="chip">AWS</span>
+          <span class="chip">WebRTC</span>
+          <span class="chip">Low-Latency Inference</span>
+          <span class="chip">End-to-End Model Deployment</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">
+          <h3>Research &amp; Technical Writing</h3>
+          <span class="skill-weight">SUPPORTING</span>
+        </div>
+
+        <div class="chip-row">
+          <span class="chip">Peer-Reviewed Publications</span>
+          <span class="chip">Thesis Research</span>
+          <span class="chip">Experimental Design</span>
+          <span class="chip">Parameter Sweeps</span>
+          <span class="chip">Technical Documentation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">[Log]</span>
+      <h2>Research &amp; Experience</h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item flagship">
+        <div class="tl-head">
+          <span class="tl-role">Master's Thesis Research <span class="tl-org">— The George Washington University</span></span>
+          <span class="tl-date">Sept 2025 – May 2026</span>
+        </div>
+        <div class="tl-loc">Washington, DC</div>
+        <ul>
+          <li>Built and trained a <span class="metric">177-node</span> CA3-inspired spiking neural network in Python, using NumPy for numerical simulation, to study how a high-dimensional attractor system reconstructs structure from partial, noisy input — a deep learning approach to representation learning in biological neural systems.</li>
+          <li>Formulated a composite training objective (completion, separation, precision, recall error) and optimized coupled network parameters with derivative-free search, iterating on training dynamics and architecture design across parameter sweeps.</li>
+          <li>Achieved <span class="metric">91% peak reconstruction accuracy</span> and zero recall error at 75% partial-input coverage, with separation error remaining statistically stable across cue levels.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item flagship">
+        <div class="tl-head">
+          <span class="tl-role">AI Researcher <span class="tl-org">— NEOALI</span></span>
+          <span class="tl-date">Aug 2023 – Jun 2024</span>
+        </div>
+        <div class="tl-loc">Seoul, South Korea</div>
+        <ul>
+          <li>Trained and fine-tuned Llama 3, a transformer-based deep learning architecture, in PyTorch on Korean dialogue data, and shipped it as real-time autocomplete/dialogue-completion inside a production AAC communication app.</li>
+          <li>Built the end-to-end production serving stack (FastAPI, Starlette WebSocket/WebRTC, MongoDB, GCP), engineering data pipelines and optimizing for low-latency neural network inference in a live, user-facing deep learning system.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">Contract Researcher <span class="tl-org">— KAIST Institute for Artificial Intelligence, Brain Science Research Center</span></span>
+          <span class="tl-date">Apr 2022 – Apr 2023</span>
+        </div>
+        <div class="tl-loc">Daejeon, South Korea</div>
+        <ul>
+          <li>Built an end-to-end speech emotion recognition deep learning system using top-down/bottom-up attention mechanisms, the core architectural building block of transformers; benchmarked classical (MFCC, Mel-spectrogram) vs. learned speech-model embeddings on IEMOCAP in PyTorch.</li>
+          <li>Extended the network to multimodal emotion recognition with facial-landmark features and built a log-frequency spectrogram method for pitch-shifted voice conversion/TTS.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">[Build]</span>
+      <h2>Selected Projects</h2>
+    </div>
+
+    <p class="section-sub">
+      A selection of deep learning, NLP, and reinforcement learning projects demonstrating applied
+      research and engineering across representation learning, sequential decision-making, and
+      biologically-inspired network design.
+    </p>
+
+    <div class="project-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-shot">CA3-Inspired Spiking Neural Network</div>
+
+        <div class="project-body">
+
+          <div class="project-tag-row">
+            <span class="project-domain">Computational Neuroscience</span>
+          </div>
+
+          <h3>CA3-Inspired Spiking Neural Network (Thesis)</h3>
+
+          <p>
+            Built and trained a 177-node spiking neural network to study pattern completion and retrieval
+            as a high-dimensional attractor system, achieving <span class="metric">91% peak reconstruction
+            accuracy</span> and zero recall error at 75% partial-input coverage.
+          </p>
+
+          <div class="project-stack">
+            <span>NumPy</span>
+            <span>Python</span>
+            <span>Derivative-Free Optimization</span>
+            <span>Representation Learning</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-shot">Transformer-Based NLP Pipeline</div>
+
+        <div class="project-body">
+
+          <div class="project-tag-row">
+            <span class="project-domain">NLP · Deep Learning</span>
+          </div>
+
+          <h3>Newspaper Trend Analysis</h3>
+
+          <p>
+            Applied BERT transformer embeddings with hierarchical clustering (HDBSCAN) to uncover latent
+            representation structure in large, unlabeled text corpora, then ranked clusters via TF-IDF —
+            an applied deep learning pipeline for large-scale unstructured data.
+          </p>
+
+          <div class="project-stack">
+            <span>BERT</span>
+            <span>HDBSCAN</span>
+            <span>TF-IDF</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-shot">RL Power Management Agent</div>
+
+        <div class="project-body">
+
+          <div class="project-tag-row">
+            <span class="project-domain">Reinforcement Learning</span>
+          </div>
+
+          <h3>Multi-Granularity On-Chip Power Management Using RL</h3>
+
+          <p>
+            Designed a reinforcement learning agent in Python/NumPy for sequential decision-making under
+            constraints, dynamically selecting actions across multiple system granularities to optimize a
+            multi-objective reward. Engineered state representations and local/global reward functions,
+            evaluating the learned policy against baseline heuristics on an energy-delay trade-off metric.
+          </p>
+
+          <div class="project-stack">
+            <span>Python</span>
+            <span>NumPy</span>
+            <span>Reward Design</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">[Published]</span>
+      <h2>Publications &amp; Research Output</h2>
+    </div>
+
+    <div class="pub-list">
+
+      <a class="pub-item pub-ieee" href="https://ieeexplore.ieee.org/document/11573709" target="_blank" rel="noopener" data-cite="Chufare, A. T., Tiruneh, R., & Juja, S. B. Cyberbiosecurity Risk Assessment Framework for Genomic Data Storage in Cloud Environments. IEEE SPW, May 2026.">
+        <span class="pub-index">01</span>
+        <div class="pub-main">
+          <div class="pub-top">
+            <span class="pub-status">Published</span>
+            <span class="pub-publisher">IEEE SPW</span>
+          </div>
+          <h3>Cyberbiosecurity Risk Assessment Framework for Genomic Data Storage in Cloud Environments
+            <svg class="pub-ext" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </h3>
+          <p class="pub-venue">Authors: A. T. Chufare, Ribka Tiruneh &amp; S. B. Juja · IEEE SPW · May 2026 (coauthor)</p>
+        </div>
+        <button class="pub-cite" type="button" aria-label="Copy citation">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15V6a2 2 0 0 1 2-2h9" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <span>Cite</span>
+        </button>
+      </a>
+
+      <a class="pub-item pub-thesis" href="#" target="_blank" rel="noopener" data-cite="R. Tiruneh, Pattern Formation and Retrieval in a Reduced-Scale CA3-Inspired Neural Network. M.S. Thesis, The George Washington University, 2026. ProQuest Dissertations & Theses Global.">
+        <span class="pub-index">02</span>
+        <div class="pub-main">
+          <div class="pub-top">
+            <span class="pub-status">Published</span>
+            <span class="pub-publisher">ProQuest</span>
+          </div>
+          <h3>Pattern Formation and Retrieval in a Reduced-Scale CA3-Inspired Neural Network
+            <svg class="pub-ext" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </h3>
+          <p class="pub-venue">R. Tiruneh · M.S. Thesis, The George Washington University, 2026 · ProQuest Dissertations &amp; Theses Global</p>
+        </div>
+        <button class="pub-cite" type="button" aria-label="Copy citation">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15V6a2 2 0 0 1 2-2h9" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <span>Cite</span>
+        </button>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('#research .pub-cite').forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var card = btn.closest('.pub-item');
+    var text = card.getAttribute('data-cite');
+    navigator.clipboard.writeText(text).then(function () {
+      var label = btn.querySelector('span');
+      var original = label.textContent;
+      label.textContent = 'Copied';
+      btn.classList.add('copied');
+      setTimeout(function () {
+        label.textContent = original;
+        btn.classList.remove('copied');
+      }, 1600);
+    });
+  });
+});
+</script>
+
+<section id="highlights">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">[Verified]</span>
+      <h2>Education &amp; Research Highlights</h2>
+    </div>
+
+    <div class="cert-cols">
+      <div>
+        <h3>Education</h3>
+        <ul class="cert-list">
+          <li>M.S. Electrical Engineering — The George Washington University, GPA 3.97/4.0 (Aug 2024 – May 2026)</li>
+          <li>Coursework: Pattern Recognition &amp; Machine Learning, Stochastic Processes, Signals &amp; Transforms, Machine Intelligence, Linear Systems, Communication Theory</li>
+          <li>B.S. Computer Science, Semi-minor in AI, Double major in Business &amp; Technology Management — KAIST (Aug 2017 – Feb 2022)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Research Highlights</h3>
+        <ul class="award-list">
+          <li>91% peak reconstruction accuracy in graduate thesis research on attractor-based pattern completion</li>
+          <li>Thesis indexed in ProQuest Dissertations &amp; Theses Global</li>
+          <li>Coauthor, IEEE SPW publication on cyberbiosecurity risk assessment</li>
+          <li>Production LLM fine-tuning and real-time serving experience (Llama 3, FastAPI, GCP)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <span class="section-tag">[Contact]</span>
+    <h2 style="margin-top:16px;">Ready to build what learns.</h2>
+    <p>M.S. Electrical Engineering, The George Washington University — deep learning engineer with production
+    experience shipping neural networks to real users. Based in Washington, D.C., reachable on every channel below.</p>
+
+    <div class="case-strip">
+      <div class="case-stat">
+        <span class="case-num">91%</span>
+        <span class="case-label">Peak reconstruction accuracy<br>in graduate thesis research</span>
+      </div>
+      <div class="case-stat">
+        <span class="case-num">2</span>
+        <span class="case-label">Countries of applied AI<br>research experience</span>
+      </div>
+      <div class="case-stat">
+        <span class="case-num">2</span>
+        <span class="case-label">Peer-reviewed publications<br>&amp; thesis outputs</span>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <a class="contact-link" href="mailto:ribka61t@gmail.com">
+        <span class="label">Email</span>
+        <span class="value">ribka61t@gmail.com</span>
+      </a>
+      <a class="contact-link" href="tel:+15712909455">
+        <span class="label">Phone</span>
+        <span class="value">+1 (571) 290-9455</span>
+      </a>
+      <a class="contact-link" href="https://github.com/ribkatam" target="_blank" rel="noopener">
+        <span class="label">GitHub</span>
+        <span class="value">@ribkatam</span>
+      </a>
+      <a class="contact-link" href="https://ribka.com" target="_blank" rel="noopener">
+        <span class="label">Website</span>
+        <span class="value">ribka.com</span>
+      </a>
+    </div>
+
+    <div class="footer-bar">
+      <span>© 2026 Ribka Tiruneh</span>
+      <span>Built and maintained on GitHub Pages</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
