@@ -3,39 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ribka Tiruneh — AI Engineer, Deep Learning &amp; Robotics</title>
-<meta name="description" content="Deep learning engineer specializing in transformer architectures, spiking neural networks, and real-time production ML systems. M.S. Electrical Engineering, George Washington University.">
+<title>Ribka Tiruneh — ML Engineer &amp; Computational Neuroscience Researcher</title>
+<meta name="description" content="Machine learning engineer and computational neuroscience researcher. DOE-funded thesis on CA3-inspired spiking neural networks, production LLM engineering, and speech/audio ML. M.S. Electrical Engineering, George Washington University.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,550;9..144,650&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
-    --ink:        #0F1B2D;
-    --ink-mid:    #16263D;
-    --surface:    #1C2D45;
-    --surface-2:  #22324A;
-    --paper:      #F7F5F0;
-    --paper-dim:  #EAE6DC;
-    --slate:      #8A9BA8;
-    --slate-dim:  #5E6E7C;
-    --sage:       #6E8E80;
-    --sage-bright:#8FB3A3;
-    --brick:      #C4452E;
-    --brick-dim:  #9A3A28;
-    --hairline:   rgba(247,245,240,0.12);
-    --hairline-dark: rgba(15,27,45,0.12);
+    --ink:        #0C1420;
+    --ink-mid:    #15202F;
+    --surface:    #1A2739;
+    --paper:      #F3F1EA;
+    --paper-dim:  #E9E6DC;
+    --slate:      #93A1AF;
+    --slate-dim:  #5C6B79;
+    --spike:      #E0A63A;   /* firing amber — spikes on the raster */
+    --spike-deep: #B07E1F;
+    --teal:       #5E9187;   /* structure teal */
+    --teal-bright:#8CBCB1;
+    --hairline:      rgba(243,241,234,0.12);
+    --hairline-dark: rgba(12,20,32,0.13);
 
-    --font-display: 'Source Serif 4', Georgia, serif;
-    --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
-    --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
 
     --max-w: 1080px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   @media (prefers-reduced-motion: reduce) {
@@ -47,343 +45,219 @@
     background: var(--paper);
     color: var(--ink);
     font-family: var(--font-body);
-    line-height: 1.6;
+    line-height: 1.65;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
   }
 
   a { color: inherit; text-decoration: none; }
-
   img { max-width: 100%; display: block; }
+  ::selection { background: var(--spike); color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--spike-deep); outline-offset: 3px; }
 
-  ::selection { background: var(--sage); color: var(--paper); }
-
-  :focus-visible {
-    outline: 2px solid var(--brick);
-    outline-offset: 3px;
-  }
-
-  .wrap {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 0 32px;
-  }
+  .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
 
   /* ===== NAV ===== */
   .nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(247,245,240,0.92);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(243,241,234,0.92);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--hairline-dark);
   }
   .nav-inner {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 18px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    max-width: var(--max-w); margin: 0 auto; padding: 16px 32px;
+    display: flex; justify-content: space-between; align-items: center;
   }
-  .nav-mark {
-    font-family: var(--font-mono);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-  }
-  .nav-mark span { color: var(--brick); }
+  .nav-mark { font-family: var(--font-mono); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; }
+  .nav-mark span { color: var(--spike-deep); }
   .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-    font-family: var(--font-mono);
-    font-size: 13px;
-    letter-spacing: 0.02em;
+    display: flex; gap: 26px; list-style: none;
+    font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.02em;
   }
-  .nav-links a {
-    color: var(--slate-dim);
-    transition: color 0.15s ease;
-    position: relative;
-    padding-bottom: 2px;
-  }
+  .nav-links a { color: var(--slate-dim); transition: color 0.15s ease; padding-bottom: 2px; }
   .nav-links a:hover { color: var(--ink); }
   .nav-toggle { display: none; }
 
-  @media (max-width: 720px) {
+  @media (max-width: 780px) {
     .nav-links { display: none; }
     .nav-toggle {
-      display: block;
-      background: none;
-      border: 1px solid var(--hairline-dark);
-      border-radius: 4px;
-      padding: 6px 10px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      cursor: pointer;
+      display: block; background: none; border: 1px solid var(--hairline-dark);
+      border-radius: 4px; padding: 6px 10px;
+      font-family: var(--font-mono); font-size: 12px; cursor: pointer;
     }
     .nav-links.open {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--paper);
-      border-bottom: 1px solid var(--hairline-dark);
-      padding: 16px 32px 24px;
-      gap: 16px;
+      display: flex; flex-direction: column;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--paper); border-bottom: 1px solid var(--hairline-dark);
+      padding: 16px 32px 24px; gap: 16px;
     }
   }
 
-  /* ===== HERO ===== */
+  /* ===== HERO with spike raster signature ===== */
   .hero {
     background: var(--ink);
     color: var(--paper);
-    padding: 96px 0 88px;
+    padding: 100px 0 92px;
     position: relative;
     overflow: hidden;
   }
-  .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--hairline) 1px, transparent 1px),
-      linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
-    background-size: 48px 48px;
-    opacity: 0.35;
+  #raster {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    opacity: 0.5;
     pointer-events: none;
   }
-  .hero-inner { position: relative; z-index: 1; }
+  .hero::after {
+    /* readability scrim over the raster */
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(100deg, rgba(12,20,32,0.94) 0%, rgba(12,20,32,0.78) 55%, rgba(12,20,32,0.35) 100%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 2; }
 
   .eyebrow {
     font-family: var(--font-mono);
-    font-size: 12.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--sage-bright);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 22px;
+    font-size: 12.5px; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--teal-bright);
+    display: inline-flex; align-items: center; gap: 9px;
+    margin-bottom: 24px;
   }
   .eyebrow::before {
     content: "";
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--sage-bright);
-    box-shadow: 0 0 0 3px rgba(143,179,163,0.18);
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--spike);
+    box-shadow: 0 0 0 3px rgba(224,166,58,0.2);
+    animation: fire 2.8s ease-in-out infinite;
   }
+  @keyframes fire { 0%, 88%, 100% { opacity: 1; } 92% { opacity: 0.15; } }
 
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.4rem, 5vw, 3.4rem);
-    font-weight: 600;
-    line-height: 1.12;
-    letter-spacing: -0.01em;
-    max-width: 13ch;
+    font-size: clamp(2.6rem, 5.4vw, 3.7rem);
+    font-weight: 550;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
   }
-
   .hero-role {
-    margin-top: 18px;
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    margin-top: 16px;
+    font-size: clamp(1.02rem, 2vw, 1.2rem);
     color: var(--slate);
-    font-weight: 400;
-    max-width: 38ch;
+    max-width: 48ch;
   }
-  .hero-role .accent { color: var(--sage-bright); font-weight: 500; }
-
-  .terminal-rule {
-    margin: 28px 0 32px;
-    width: 220px;
-    height: 2px;
-    background: linear-gradient(90deg, var(--sage-bright), transparent);
-    position: relative;
-  }
-  .terminal-rule::after {
-    content: "";
-    position: absolute;
-    right: -2px; top: -3px;
-    width: 8px; height: 8px;
-    background: var(--sage-bright);
-    animation: blink 1.4s steps(2) infinite;
-  }
-  @keyframes blink { 50% { opacity: 0; } }
+  .hero-role .accent { color: var(--spike); font-weight: 500; }
 
   .hero-summary {
+    margin-top: 26px;
     max-width: 62ch;
     color: var(--paper-dim);
     font-size: 1.02rem;
   }
+  .hero-summary strong { color: var(--paper); font-weight: 600; }
 
   .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 14px;
-    margin-top: 32px;
-    font-family: var(--font-mono);
-    font-size: 13px;
+    display: flex; flex-wrap: wrap; gap: 10px 12px;
+    margin-top: 34px;
+    font-family: var(--font-mono); font-size: 13px;
   }
   .hero-meta a, .hero-meta span {
     color: var(--slate);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    display: inline-flex; align-items: center; gap: 6px;
     padding: 7px 12px;
     border: 1px solid var(--hairline);
     border-radius: 3px;
     transition: border-color 0.15s ease, color 0.15s ease;
   }
-  .hero-meta a:hover {
-    border-color: var(--sage-bright);
-    color: var(--paper);
-  }
+  .hero-meta a:hover { border-color: var(--spike); color: var(--paper); }
 
   /* ===== SECTION SCAFFOLDING ===== */
-  section { padding: 80px 0; }
+  section { padding: 84px 0; }
   section:nth-of-type(even) { background: var(--paper-dim); }
 
   .section-head {
     margin-bottom: 44px;
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    flex-wrap: wrap;
+    display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
   }
   .section-tag {
     font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--brick-dim);
+    font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--teal);
     border: 1px solid currentColor;
-    padding: 3px 8px;
-    border-radius: 2px;
-    white-space: nowrap;
+    padding: 3px 9px; border-radius: 2px; white-space: nowrap;
   }
   .section-head h2 {
     font-family: var(--font-display);
-    font-size: clamp(1.5rem, 3vw, 1.9rem);
-    font-weight: 600;
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    font-weight: 550;
     letter-spacing: -0.01em;
   }
   .section-sub {
     color: var(--slate-dim);
-    font-size: 0.95rem;
-    max-width: 60ch;
+    font-size: 0.96rem;
+    max-width: 62ch;
     margin-top: -28px;
-    margin-bottom: 36px;
+    margin-bottom: 38px;
   }
 
-  /* ===== SKILLS ===== */
-  .skills-grid {
+  /* ===== THREE THREADS (About) ===== */
+  .threads {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
   }
-  @media (max-width: 720px) { .skills-grid { grid-template-columns: 1fr; } }
-
-  .skill-group {
-    border-top: 2px solid var(--ink);
-    padding-top: 16px;
-  }
-  .skill-group.priority { border-top-color: var(--brick); }
-  .skill-group-label {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 14px;
-  }
-  .skill-group h3 {
-    font-family: var(--font-display);
-    font-size: 1.08rem;
-    font-weight: 600;
-  }
-  .skill-weight {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--slate-dim);
-    letter-spacing: 0.04em;
-  }
-  .chip-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .chip {
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    padding: 5px 10px;
-    border: 1px solid var(--hairline-dark);
-    border-radius: 3px;
-    color: var(--ink);
+  @media (max-width: 820px) { .threads { grid-template-columns: 1fr; } }
+  .thread {
     background: var(--paper);
+    border: 1px solid var(--hairline-dark);
+    border-top: 3px solid var(--teal);
+    border-radius: 4px;
+    padding: 24px 24px 26px;
   }
-  .skill-group.priority .chip {
-    border-color: rgba(196,69,46,0.3);
+  .thread:first-child { border-top-color: var(--spike); }
+  .thread h3 {
+    font-family: var(--font-display);
+    font-size: 1.14rem; font-weight: 600;
+    margin-bottom: 10px;
   }
+  .thread p { font-size: 0.93rem; color: var(--ink-mid); }
+  .thread .metric { font-family: var(--font-mono); font-weight: 600; color: var(--spike-deep); }
 
-  /* ===== EXPERIENCE ===== */
+  /* ===== EXPERIENCE TIMELINE ===== */
   .timeline { position: relative; }
   .tl-item {
     position: relative;
-    padding: 0 0 40px 28px;
+    padding: 0 0 42px 30px;
     border-left: 1px solid var(--hairline-dark);
   }
   .tl-item:last-child { border-left-color: transparent; padding-bottom: 0; }
   .tl-item::before {
     content: "";
-    position: absolute;
-    left: -5px; top: 4px;
-    width: 9px; height: 9px;
-    border-radius: 50%;
+    position: absolute; left: -5px; top: 5px;
+    width: 9px; height: 9px; border-radius: 50%;
     background: var(--paper-dim);
     border: 2px solid var(--slate-dim);
   }
-  .tl-item.flagship::before {
-    background: var(--brick);
-    border-color: var(--brick);
-  }
-  .tl-item.flagship { border-left-color: rgba(196,69,46,0.35); }
+  .tl-item.flagship::before { background: var(--spike); border-color: var(--spike); }
+  .tl-item.flagship { border-left-color: rgba(224,166,58,0.4); }
 
   .tl-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 8px 16px;
-    margin-bottom: 4px;
+    display: flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; gap: 6px 16px; margin-bottom: 4px;
   }
-  .tl-role {
-    font-weight: 600;
-    font-size: 1.04rem;
-  }
+  .tl-role { font-weight: 600; font-size: 1.05rem; }
   .tl-org { color: var(--slate-dim); font-weight: 400; }
   .tl-date {
-    font-family: var(--font-mono);
-    font-size: 12.5px;
-    color: var(--slate-dim);
-    white-space: nowrap;
+    font-family: var(--font-mono); font-size: 12.5px;
+    color: var(--slate-dim); white-space: nowrap;
   }
   .tl-loc {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--sage);
-    margin-bottom: 10px;
+    font-family: var(--font-mono); font-size: 12px;
+    color: var(--teal); margin-bottom: 10px;
   }
   .tl-item ul { padding-left: 18px; }
-  .tl-item li {
-    font-size: 0.95rem;
-    color: var(--ink-mid, var(--ink));
-    margin-bottom: 6px;
-  }
+  .tl-item li { font-size: 0.95rem; color: var(--ink-mid); margin-bottom: 7px; }
   .tl-item li::marker { color: var(--slate-dim); }
-  .metric {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    color: var(--brick-dim);
-  }
+  .metric { font-family: var(--font-mono); font-weight: 600; color: var(--spike-deep); }
 
   /* ===== PROJECTS ===== */
   .project-grid {
@@ -397,261 +271,180 @@
     background: var(--paper);
     border: 1px solid var(--hairline-dark);
     border-radius: 4px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: border-color 0.15s ease, transform 0.15s ease;
+    padding: 22px 24px 24px;
+    display: flex; flex-direction: column;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .project-card:hover { border-color: var(--sage); transform: translateY(-2px); }
-
-  .project-shot {
-    aspect-ratio: 16/9;
-    background:
-      repeating-linear-gradient(45deg, var(--paper-dim) 0 10px, var(--paper) 10px 20px);
-    border-bottom: 1px solid var(--hairline-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--slate-dim);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 12px;
+  .project-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(12,20,32,0.07);
   }
-
-  .project-body { padding: 20px 22px 22px; flex: 1; display: flex; flex-direction: column; }
   .project-tag-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 12px;
   }
   .project-domain {
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--sage);
+    font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--teal);
   }
   .project-link {
-    font-family: var(--font-mono);
-    font-size: 12px;
+    font-family: var(--font-mono); font-size: 12px;
     color: var(--slate-dim);
-    border: 1px solid var(--hairline-dark);
-    border-radius: 3px;
-    padding: 3px 9px;
+    border: 1px solid var(--hairline-dark); border-radius: 3px;
+    padding: 3px 10px;
     transition: all 0.15s ease;
   }
   .project-link:hover { color: var(--paper); background: var(--ink); border-color: var(--ink); }
-
   .project-card h3 {
     font-family: var(--font-display);
-    font-size: 1.12rem;
-    font-weight: 600;
+    font-size: 1.12rem; font-weight: 600;
     margin-bottom: 8px;
   }
-  .project-card p {
-    font-size: 0.92rem;
-    color: var(--ink-mid, var(--ink));
-    margin-bottom: 14px;
-    flex: 1;
-  }
+  .project-card p { font-size: 0.92rem; color: var(--ink-mid); margin-bottom: 16px; flex: 1; }
   .project-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--slate-dim);
+    display: flex; flex-wrap: wrap; gap: 6px;
+    font-family: var(--font-mono); font-size: 11px; color: var(--slate-dim);
   }
   .project-stack span {
     border: 1px solid var(--hairline-dark);
-    padding: 2px 7px;
-    border-radius: 2px;
+    padding: 2px 8px; border-radius: 2px;
   }
 
   /* ===== PUBLICATIONS ===== */
-  #research .pub-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-top: 32px;
-  }
-
+  #research .pub-list { display: flex; flex-direction: column; gap: 14px; }
   #research .pub-item {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    gap: 22px;
+    display: flex; align-items: flex-start; gap: 22px;
     padding: 22px 24px 22px 20px;
-    background: #FDFCF8;
-    border: 1px solid rgba(40,49,63,0.10);
-    border-left: 4px solid #7C9A92;
-    border-radius: 10px;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    background: var(--paper);
+    border: 1px solid var(--hairline-dark);
+    border-left: 4px solid var(--teal);
+    border-radius: 6px;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
   }
-
   #research .pub-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 24px rgba(40,49,63,0.09);
-    border-color: rgba(40,49,63,0.16);
+    box-shadow: 0 10px 24px rgba(12,20,32,0.08);
   }
-
-  #research .pub-ieee       { border-left-color: #4E7A9E; }
-  #research .pub-thesis     { border-left-color: #C99A3B; }
+  #research .pub-ieee   { border-left-color: #4E7A9E; }
+  #research .pub-thesis { border-left-color: var(--spike); }
 
   #research .pub-index {
-    font-family: Georgia, serif;
-    font-size: 30px;
-    font-weight: 700;
-    color: rgba(40,49,63,0.14);
-    line-height: 1;
-    min-width: 44px;
-    padding-top: 2px;
+    font-family: var(--font-display);
+    font-size: 28px; font-weight: 650;
+    color: rgba(12,20,32,0.15);
+    line-height: 1; min-width: 42px; padding-top: 3px;
     user-select: none;
   }
-
   #research .pub-main { flex: 1; min-width: 0; }
-
-  #research .pub-top {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-  }
-
+  #research .pub-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
   #research .pub-status {
-    font-family: "Courier New", monospace;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 3px 9px;
-    border-radius: 20px;
-    background: rgba(124,154,146,0.16);
-    color: #4a685f;
+    font-family: var(--font-mono);
+    font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 20px;
+    background: rgba(94,145,135,0.15); color: #3E6157;
   }
-
   #research .pub-publisher {
-    font-family: "Courier New", monospace;
-    font-size: 11px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: rgba(40,49,63,0.45);
+    font-family: var(--font-mono);
+    font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--slate-dim);
   }
-
   #research .pub-item h3 {
     margin: 0 0 6px;
-    font-size: 17px;
-    line-height: 1.35;
-    color: #28313F;
     font-family: var(--font-display);
-    font-weight: 600;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 7px;
+    font-size: 17px; font-weight: 600; line-height: 1.35;
+    display: inline-flex; align-items: baseline; gap: 7px;
   }
-
   #research .pub-ext {
-    color: #C1552F;
-    flex-shrink: 0;
-    opacity: 0;
-    transform: translate(-2px, 2px);
+    color: var(--spike-deep); flex-shrink: 0;
+    opacity: 0; transform: translate(-2px, 2px);
     transition: opacity 0.18s ease, transform 0.18s ease;
   }
-
-  #research .pub-item:hover .pub-ext {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-
-  #research .pub-venue {
-    margin: 0;
-    font-size: 13.5px;
-    line-height: 1.5;
-    color: rgba(40,49,63,0.6);
-  }
+  #research .pub-item:hover .pub-ext { opacity: 1; transform: translate(0, 0); }
+  #research .pub-venue { font-size: 13.5px; line-height: 1.5; color: var(--slate-dim); }
 
   #research .pub-cite {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
-    align-self: center;
+    display: flex; align-items: center; gap: 6px;
+    flex-shrink: 0; align-self: center;
     padding: 8px 14px;
-    font-family: "Courier New", monospace;
-    font-size: 12px;
-    letter-spacing: 0.03em;
-    color: #28313F;
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.03em;
+    color: var(--ink);
     background: transparent;
-    border: 1px solid rgba(40,49,63,0.18);
-    border-radius: 8px;
+    border: 1px solid var(--hairline-dark); border-radius: 6px;
     cursor: pointer;
     transition: background 0.15s ease, border-color 0.15s ease;
   }
-
-  #research .pub-cite:hover {
-    background: rgba(40,49,63,0.05);
-    border-color: rgba(40,49,63,0.3);
-  }
-
-  #research .pub-cite.copied {
-    background: #7C9A92;
-    border-color: #7C9A92;
-    color: #FDFCF8;
-  }
+  #research .pub-cite:hover { background: rgba(12,20,32,0.05); }
+  #research .pub-cite.copied { background: var(--teal); border-color: var(--teal); color: var(--paper); }
 
   @media (max-width: 640px) {
     #research .pub-item { flex-wrap: wrap; padding: 18px; }
-    #research .pub-cite { order: 3; margin-left: 66px; }
+    #research .pub-cite { order: 3; margin-left: 62px; }
   }
 
-  /* ===== HIGHLIGHTS ===== */
-  .cert-cols {
+  /* ===== SKILLS ===== */
+  .skills-grid {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 48px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 40px;
   }
+  @media (max-width: 720px) { .skills-grid { grid-template-columns: 1fr; } }
+  .skill-group { border-top: 2px solid var(--ink); padding-top: 16px; }
+  .skill-group.priority { border-top-color: var(--spike); }
+  .skill-group-label {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 14px;
+  }
+  .skill-group h3 { font-family: var(--font-display); font-size: 1.08rem; font-weight: 600; }
+  .skill-weight {
+    font-family: var(--font-mono);
+    font-size: 11px; color: var(--slate-dim); letter-spacing: 0.04em;
+  }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    padding: 5px 10px;
+    border: 1px solid var(--hairline-dark);
+    border-radius: 3px;
+    background: var(--paper);
+  }
+  .skill-group.priority .chip { border-color: rgba(176,126,31,0.35); }
+
+  /* ===== EDUCATION & AWARDS ===== */
+  .cert-cols { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; }
   @media (max-width: 720px) { .cert-cols { grid-template-columns: 1fr; gap: 32px; } }
   .cert-cols h3 {
     font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
     color: var(--slate-dim);
     margin-bottom: 16px;
   }
-  .cert-list, .award-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .cert-list li, .award-list li {
-    font-size: 0.93rem;
-    padding-left: 18px;
-    position: relative;
-  }
-  .cert-list li::before { content: "▸"; position: absolute; left: 0; color: var(--sage); }
-  .award-list li::before { content: "▸"; position: absolute; left: 0; color: var(--brick-dim); }
+  .edu-item { margin-bottom: 22px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-degree { font-weight: 600; font-size: 1rem; }
+  .edu-school { color: var(--slate-dim); font-size: 0.93rem; }
+  .edu-note { font-size: 0.9rem; color: var(--ink-mid); margin-top: 4px; }
+  .edu-note .metric { font-size: 0.88rem; }
+  .award-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .award-list li { font-size: 0.93rem; padding-left: 18px; position: relative; }
+  .award-list li::before { content: "▸"; position: absolute; left: 0; color: var(--spike-deep); }
 
   /* ===== CONTACT / FOOTER ===== */
-  .contact {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 88px 0 56px;
-  }
-  .contact .section-tag { color: var(--sage-bright); }
+  .contact { background: var(--ink); color: var(--paper); padding: 88px 0 56px; }
+  .contact .section-tag { color: var(--teal-bright); }
   .contact h2 {
     font-family: var(--font-display);
-    font-size: clamp(1.6rem, 3.6vw, 2.2rem);
-    font-weight: 600;
-    max-width: 16ch;
-    margin-bottom: 16px;
+    font-size: clamp(1.7rem, 3.6vw, 2.3rem);
+    font-weight: 550;
+    max-width: 20ch;
+    margin: 16px 0;
   }
-  .contact p { color: var(--slate); max-width: 52ch; margin-bottom: 32px; }
+  .contact > .wrap > p { color: var(--slate); max-width: 54ch; margin-bottom: 34px; }
 
   .case-strip {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: var(--hairline);
     border: 1px solid var(--hairline);
@@ -659,30 +452,18 @@
     margin-bottom: 48px;
     overflow: hidden;
   }
-  .case-stat {
-    background: var(--surface);
-    padding: 22px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
+  .case-stat { background: var(--surface); padding: 22px 20px; display: flex; flex-direction: column; gap: 6px; }
   .case-num {
     font-family: var(--font-display);
-    font-size: 2.1rem;
-    font-weight: 600;
-    color: var(--sage-bright);
-    line-height: 1;
+    font-size: 2.1rem; font-weight: 550;
+    color: var(--spike); line-height: 1;
   }
   .case-label {
     font-family: var(--font-mono);
-    font-size: 11.5px;
-    letter-spacing: 0.02em;
-    color: var(--slate);
-    line-height: 1.5;
+    font-size: 11.5px; letter-spacing: 0.02em;
+    color: var(--slate); line-height: 1.5;
   }
-  @media (max-width: 640px) {
-    .case-strip { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 640px) { .case-strip { grid-template-columns: 1fr; } }
 
   .contact-grid {
     display: grid;
@@ -696,36 +477,26 @@
     padding: 16px 18px;
     transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
   }
-  .contact-link:hover { border-color: var(--sage-bright); background: var(--surface); transform: translateY(-2px); }
+  .contact-link:hover { border-color: var(--spike); background: var(--surface); transform: translateY(-2px); }
   .contact-link .label {
     display: block;
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--sage-bright);
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--teal-bright);
     margin-bottom: 6px;
   }
-  .contact-link .value { font-size: 0.95rem; color: var(--paper-dim); overflow-wrap: anywhere; word-break: normal; }
+  .contact-link .value { font-size: 0.95rem; color: var(--paper-dim); overflow-wrap: anywhere; }
 
   .footer-bar {
     border-top: 1px solid var(--hairline);
     padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--slate-dim);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    font-family: var(--font-mono); font-size: 12px; color: var(--slate-dim);
   }
 
-  /* ===== shared utility ===== */
   .visually-hidden {
-    position: absolute;
-    width: 1px; height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
+    position: absolute; width: 1px; height: 1px;
+    overflow: hidden; clip: rect(0 0 0 0);
   }
 </style>
 </head>
@@ -736,163 +507,75 @@
     <a href="#top" class="nav-mark">RT<span>_</span></a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">MENU</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#summary">Summary</a></li>
-      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#highlights">Highlights</a></li>
+      <li><a href="#research">Publications</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="hero" id="top">
+  <canvas id="raster" aria-hidden="true"></canvas>
   <div class="wrap hero-inner">
     <p class="eyebrow">M.S. Electrical Engineering · George Washington University</p>
     <h1>Ribka Tiruneh</h1>
-    <p class="hero-role">AI Engineer <span class="accent">— Deep Learning / Robotics</span></p>
-    <div class="terminal-rule"></div>
+    <p class="hero-role">Machine Learning Engineer <span class="accent">·</span> Computational Neuroscience Researcher</p>
 
     <p class="hero-summary">
-      Deep learning engineer with hands-on PyTorch and NumPy experience training and fine-tuning neural
-      networks — transformer architectures, attention mechanisms, and spiking neural networks — from
-      representation learning through production deployment.
+      I study how neural systems, biological and artificial, <strong>learn, store, and retrieve structure</strong>.
+      DOE Office of Science funded thesis on CA3-inspired spiking neural networks, production LLM
+      engineering in Seoul, and speech/audio ML research at KAIST's Brain Science Research Center.
     </p>
 
     <div class="hero-meta">
       <a href="mailto:ribka61t@gmail.com">EMAIL</a>
-      <a href="tel:+15712909455">+1 (571) 290-9455</a>
-      <a href="https://ribka.com" target="_blank" rel="noopener">RIBKA.COM</a>
       <a href="https://github.com/ribkatam" target="_blank" rel="noopener">GITHUB</a>
-      <span>Washington, D.C. — Remote-ready</span>
+      <a href="https://ribka.com" target="_blank" rel="noopener">RIBKA.COM</a>
+      <span>Washington, D.C.</span>
     </div>
   </div>
 </header>
 
-<section id="summary">
+<section id="about">
   <div class="wrap">
     <div class="section-head">
       <span class="section-tag">[Profile]</span>
-      <h2>Summary</h2>
-    </div>
-    <p style="max-width: 68ch; font-size: 1.02rem;">
-      Deep learning engineer with hands-on PyTorch and NumPy experience training and fine-tuning neural
-      networks — transformer architectures, attention mechanisms, and spiking neural networks — from
-      representation learning through production deployment. Background spans graduate research on
-      biologically-inspired neural systems, production LLM serving infrastructure, and applied reinforcement
-      learning, with a consistent focus on the mechanics of how neural systems learn, represent, and retrieve
-      structure from data. Seeking AI engineering roles in deep learning, robotics, and applied ML research.
-    </p>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-tag">[Capabilities]</span>
-      <h2>Skills &amp; Domain Expertise</h2>
+      <h2>Three connected threads</h2>
     </div>
 
-    <p class="section-sub">
-      Deep learning is my primary specialization, complemented by production ML systems,
-      applied research tooling, and low-latency deployment engineering.
-    </p>
-
-    <div class="skills-grid">
-
-      <div class="skill-group priority">
-        <div class="skill-group-label">
-          <h3>Deep Learning</h3>
-          <span class="skill-weight">PRIMARY FOCUS</span>
-        </div>
-
-        <div class="chip-row">
-          <span class="chip">Neural Network Architectures</span>
-          <span class="chip">Transformer / Attention Models</span>
-          <span class="chip">Spiking Neural Networks</span>
-          <span class="chip">Sequence Models</span>
-          <span class="chip">Representation Learning</span>
-          <span class="chip">Training Dynamics &amp; Optimization</span>
-          <span class="chip">Fine-Tuning LLMs (Llama 3)</span>
-          <span class="chip">Reinforcement Learning</span>
-        </div>
+    <div class="threads">
+      <div class="thread">
+        <h3>Computational Neuroscience</h3>
+        <p>
+          DOE-funded thesis on whether a substantially reduced CA3-inspired recurrent circuit retains
+          associative memory. Characterized cell assembly formation under STDP and pattern completion
+          from partial cues in CARLsim (C++/CUDA), reaching <span class="metric">91% peak reconstruction
+          accuracy</span> with zero recall error at 75% cue coverage.
+        </p>
       </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">
-          <h3>Programming</h3>
-          <span class="skill-weight">SUPPORTING</span>
-        </div>
-
-        <div class="chip-row">
-          <span class="chip">Python (NumPy, PyTorch)</span>
-          <span class="chip">C++</span>
-          <span class="chip">C</span>
-          <span class="chip">MATLAB</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">Git</span>
-          <span class="chip">Linux</span>
-        </div>
+      <div class="thread">
+        <h3>Production LLM Engineering</h3>
+        <p>
+          At NEOALI in Seoul, fine-tuned Llama 3 on Korean dialogue data with retrieval-augmented
+          completion for an AAC app serving users with severe communication impairments, built and
+          deployed end to end on GCP with FastAPI, WebSocket, WebRTC, and React Native.
+        </p>
       </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">
-          <h3>ML / Data Tooling</h3>
-          <span class="skill-weight">SUPPORTING</span>
-        </div>
-
-        <div class="chip-row">
-          <span class="chip">PyTorch</span>
-          <span class="chip">NumPy</span>
-          <span class="chip">SciPy</span>
-          <span class="chip">Torchaudio</span>
-          <span class="chip">Librosa</span>
-          <span class="chip">spaCy</span>
-          <span class="chip">NLTK</span>
-          <span class="chip">LlamaIndex</span>
-          <span class="chip">Statistical Modeling</span>
-          <span class="chip">Feature Engineering</span>
-        </div>
+      <div class="thread">
+        <h3>Speech &amp; Audio ML</h3>
+        <p>
+          At KAIST's Brain Science Research Center: attention-based speech emotion recognition
+          benchmarked on IEMOCAP, multimodal fusion with facial landmarks, logarithmic filterbank
+          design for voice conversion, and waveform reconstruction from spectrogram magnitude alone.
+        </p>
       </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">
-          <h3>Production Systems</h3>
-          <span class="skill-weight">SUPPORTING</span>
-        </div>
-
-        <div class="chip-row">
-          <span class="chip">FastAPI</span>
-          <span class="chip">Starlette WebSocket</span>
-          <span class="chip">MongoDB</span>
-          <span class="chip">GCP</span>
-          <span class="chip">AWS</span>
-          <span class="chip">WebRTC</span>
-          <span class="chip">Low-Latency Inference</span>
-          <span class="chip">End-to-End Model Deployment</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-label">
-          <h3>Research &amp; Technical Writing</h3>
-          <span class="skill-weight">SUPPORTING</span>
-        </div>
-
-        <div class="chip-row">
-          <span class="chip">Peer-Reviewed Publications</span>
-          <span class="chip">Thesis Research</span>
-          <span class="chip">Experimental Design</span>
-          <span class="chip">Parameter Sweeps</span>
-          <span class="chip">Technical Documentation</span>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
-
 
 <section id="experience">
   <div class="wrap">
@@ -905,14 +588,16 @@
 
       <div class="tl-item flagship">
         <div class="tl-head">
-          <span class="tl-role">Master's Thesis Research <span class="tl-org">— The George Washington University</span></span>
+          <span class="tl-role">Master's Thesis Research <span class="tl-org">— Adam Lab, The George Washington University</span></span>
           <span class="tl-date">Sept 2025 – May 2026</span>
         </div>
-        <div class="tl-loc">Washington, DC</div>
+        <div class="tl-loc">Washington, DC · Supported by the U.S. Department of Energy, Office of Science</div>
         <ul>
-          <li>Built and trained a <span class="metric">177-node</span> CA3-inspired spiking neural network in Python, using NumPy for numerical simulation, to study how a high-dimensional attractor system reconstructs structure from partial, noisy input — a deep learning approach to representation learning in biological neural systems.</li>
-          <li>Formulated a composite training objective (completion, separation, precision, recall error) and optimized coupled network parameters with derivative-free search, iterating on training dynamics and architecture design across parameter sweeps.</li>
-          <li>Achieved <span class="metric">91% peak reconstruction accuracy</span> and zero recall error at 75% partial-input coverage, with separation error remaining statistically stable across cue levels.</li>
+          <li>Investigated whether a substantially reduced recurrent circuit retains associative memory function, characterizing cell assembly formation under spike-timing-dependent plasticity and pattern completion from partial cues, with short-term plasticity modeled using the Tsodyks–Markram formalism.</li>
+          <li>Designed a four-term composite objective quantifying completion, separation, precision, and recall error, built to rule out degenerate solutions such as indiscriminate or suppressed firing, and optimized coupled model parameters with derivative-free evolutionary search.</li>
+          <li>Analyzed spike rasters, synaptic weight matrices, membrane voltage, and input currents across cued, non-cued, and off-target populations. Achieved <span class="metric">91% peak reconstruction accuracy</span>, with recall error falling to zero at <span class="metric">75% cue coverage</span>.</li>
+          <li>Traced divergent GPU vs CPU conductance behavior for identical network configurations through the CARLsim C++/CUDA source.</li>
+          <li>Argued the resulting event-driven, local-learning architecture is tractable for neuromorphic hardware implementation.</li>
         </ul>
       </div>
 
@@ -923,20 +608,34 @@
         </div>
         <div class="tl-loc">Seoul, South Korea</div>
         <ul>
-          <li>Trained and fine-tuned Llama 3, a transformer-based deep learning architecture, in PyTorch on Korean dialogue data, and shipped it as real-time autocomplete/dialogue-completion inside a production AAC communication app.</li>
-          <li>Built the end-to-end production serving stack (FastAPI, Starlette WebSocket/WebRTC, MongoDB, GCP), engineering data pipelines and optimizing for low-latency neural network inference in a live, user-facing deep learning system.</li>
+          <li>Fine-tuned Llama 3 on Korean dialogue data and integrated retrieval-augmented completion for an augmentative and alternative communication application serving users with severe communication impairments.</li>
+          <li>Built and deployed the production system end to end: Python backend with FastAPI and Starlette WebSocket, WebRTC for real-time audio, MongoDB, GCP deployment, and a cross-platform React Native frontend.</li>
+          <li>Monitored latency and reliability after launch and iterated on the architecture as usage grew.</li>
         </ul>
       </div>
 
       <div class="tl-item">
         <div class="tl-head">
-          <span class="tl-role">Contract Researcher <span class="tl-org">— KAIST Institute for Artificial Intelligence, Brain Science Research Center</span></span>
+          <span class="tl-role">Contract Researcher <span class="tl-org">— KAIST Institute for AI, Brain Science Research Center</span></span>
           <span class="tl-date">Apr 2022 – Apr 2023</span>
         </div>
         <div class="tl-loc">Daejeon, South Korea</div>
         <ul>
-          <li>Built an end-to-end speech emotion recognition deep learning system using top-down/bottom-up attention mechanisms, the core architectural building block of transformers; benchmarked classical (MFCC, Mel-spectrogram) vs. learned speech-model embeddings on IEMOCAP in PyTorch.</li>
-          <li>Extended the network to multimodal emotion recognition with facial-landmark features and built a log-frequency spectrogram method for pitch-shifted voice conversion/TTS.</li>
+          <li>Built an end-to-end speech emotion recognition system combining top-down and bottom-up attention, improving classification accuracy on the IEMOCAP benchmark.</li>
+          <li>Benchmarked hand-designed spectral features (MFCC, Mel-spectrogram) against learned representations from large pretrained speech models, and extended the system to multimodal emotion recognition with facial-landmark fusion.</li>
+          <li>Designed a full logarithmic filterbank, analogous to the mel filterbank, permitting pitch shifting by remapping spectrogram frequency-bin indices, applied to voice conversion and text-to-speech.</li>
+        </ul>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">Undergraduate Research Intern <span class="tl-org">— KAIST Institute for AI, Brain Science Research Center</span></span>
+          <span class="tl-date">Oct 2020 – Mar 2021</span>
+        </div>
+        <div class="tl-loc">Daejeon, South Korea</div>
+        <ul>
+          <li>Reconstructed audio waveforms from spectrogram magnitude alone, training a regression model to estimate phase from amplitude information.</li>
+          <li>Fixed the output layer weights to the inverse discrete-time Fourier transform basis, embedding the analytical transform directly into the architecture, trained with a combined wave and phase loss.</li>
         </ul>
       </div>
 
@@ -952,93 +651,100 @@
     </div>
 
     <p class="section-sub">
-      A selection of deep learning, NLP, and reinforcement learning projects demonstrating applied
-      research and engineering across representation learning, sequential decision-making, and
-      biologically-inspired network design.
+      Applied work across biologically inspired network design, anomaly detection, reinforcement
+      learning, NLP, signal processing, and systems programming.
     </p>
 
     <div class="project-grid">
 
-      <!-- Project 1 -->
       <div class="project-card">
-        <div class="project-shot">CA3-Inspired Spiking Neural Network</div>
-
-        <div class="project-body">
-
-          <div class="project-tag-row">
-            <span class="project-domain">Computational Neuroscience</span>
-          </div>
-
-          <h3>CA3-Inspired Spiking Neural Network (Thesis)</h3>
-
-          <p>
-            Built and trained a 177-node spiking neural network to study pattern completion and retrieval
-            as a high-dimensional attractor system, achieving <span class="metric">91% peak reconstruction
-            accuracy</span> and zero recall error at 75% partial-input coverage.
-          </p>
-
-          <div class="project-stack">
-            <span>NumPy</span>
-            <span>Python</span>
-            <span>Derivative-Free Optimization</span>
-            <span>Representation Learning</span>
-          </div>
-
+        <div class="project-tag-row">
+          <span class="project-domain">Computational Neuroscience</span>
+          <a class="project-link" href="https://github.com/ribkatam/ca3" target="_blank" rel="noopener">github ↗</a>
+        </div>
+        <h3>CA3-Inspired Spiking Neural Network</h3>
+        <p>
+          Reduced-scale CA3-inspired spiking network built in CARLsim (C++/CUDA) modeling hippocampal
+          pattern formation and retrieval with STDP, short-term plasticity, and Izhikevich neuron
+          dynamics. <span class="metric">91% peak reconstruction accuracy</span>.
+        </p>
+        <div class="project-stack">
+          <span>CARLsim</span><span>C++</span><span>CUDA</span><span>Evolutionary Optimization</span>
         </div>
       </div>
 
-      <!-- Project 2 -->
       <div class="project-card">
-        <div class="project-shot">Transformer-Based NLP Pipeline</div>
-
-        <div class="project-body">
-
-          <div class="project-tag-row">
-            <span class="project-domain">NLP · Deep Learning</span>
-          </div>
-
-          <h3>Newspaper Trend Analysis</h3>
-
-          <p>
-            Applied BERT transformer embeddings with hierarchical clustering (HDBSCAN) to uncover latent
-            representation structure in large, unlabeled text corpora, then ranked clusters via TF-IDF —
-            an applied deep learning pipeline for large-scale unstructured data.
-          </p>
-
-          <div class="project-stack">
-            <span>BERT</span>
-            <span>HDBSCAN</span>
-            <span>TF-IDF</span>
-          </div>
-
+        <div class="project-tag-row">
+          <span class="project-domain">Anomaly Detection · Security</span>
+        </div>
+        <h3>Anomaly Detection in Computer Networks</h3>
+        <p>
+          Built and benchmarked adversarial autoencoders, graph neural networks, k-NN, Extra Trees,
+          and XGBoost for rare-event detection in large-scale, noisy network traffic data using AWS compute.
+        </p>
+        <div class="project-stack">
+          <span>Autoencoders</span><span>GNNs</span><span>XGBoost</span><span>AWS</span>
         </div>
       </div>
 
-      <!-- Project 3 -->
       <div class="project-card">
-        <div class="project-shot">RL Power Management Agent</div>
+        <div class="project-tag-row">
+          <span class="project-domain">Reinforcement Learning</span>
+        </div>
+        <h3>Multi-Granularity On-Chip Power Management</h3>
+        <p>
+          Designed a reinforcement learning agent and multi-objective reward scheme for sequential
+          decision-making under resource constraints, evaluating the learned policy against baseline
+          heuristics on an energy-delay trade-off metric.
+        </p>
+        <div class="project-stack">
+          <span>RL</span><span>Reward Design</span><span>Python</span>
+        </div>
+      </div>
 
-        <div class="project-body">
+      <div class="project-card">
+        <div class="project-tag-row">
+          <span class="project-domain">Speech · Deep Learning</span>
+          <a class="project-link" href="https://github.com/ribkatam/SER" target="_blank" rel="noopener">github ↗</a>
+        </div>
+        <h3>Speech Emotion Recognition</h3>
+        <p>
+          End-to-end speech emotion recognition combining top-down and bottom-up attention,
+          benchmarked against classical spectral features and pretrained speech-model embeddings
+          on IEMOCAP.
+        </p>
+        <div class="project-stack">
+          <span>PyTorch</span><span>Attention</span><span>IEMOCAP</span>
+        </div>
+      </div>
 
-          <div class="project-tag-row">
-            <span class="project-domain">Reinforcement Learning</span>
-          </div>
+      <div class="project-card">
+        <div class="project-tag-row">
+          <span class="project-domain">Signal Processing</span>
+          <a class="project-link" href="https://github.com/ribkatam/LogFilterBank" target="_blank" rel="noopener">github ↗</a>
+        </div>
+        <h3>Logarithmic Filterbank</h3>
+        <p>
+          Full logarithmic filterbank, analogous to the mel filterbank, permitting pitch shifting by
+          remapping spectrogram frequency-bin indices. Applied to voice conversion and text-to-speech.
+        </p>
+        <div class="project-stack">
+          <span>Filterbank Design</span><span>Librosa</span><span>Torchaudio</span>
+        </div>
+      </div>
 
-          <h3>Multi-Granularity On-Chip Power Management Using RL</h3>
-
-          <p>
-            Designed a reinforcement learning agent in Python/NumPy for sequential decision-making under
-            constraints, dynamically selecting actions across multiple system granularities to optimize a
-            multi-objective reward. Engineered state representations and local/global reward functions,
-            evaluating the learned policy against baseline heuristics on an energy-delay trade-off metric.
-          </p>
-
-          <div class="project-stack">
-            <span>Python</span>
-            <span>NumPy</span>
-            <span>Reward Design</span>
-          </div>
-
+      <div class="project-card">
+        <div class="project-tag-row">
+          <span class="project-domain">NLP · Systems</span>
+        </div>
+        <h3>Newspaper Trend Analysis &amp; Pintos OS</h3>
+        <p>
+          BERT sentence embeddings with HDBSCAN clustering to uncover latent topic structure in large
+          text corpora, ranked by cluster-level TF-IDF. Separately, implemented core OS components in C:
+          threading, user programs, virtual memory, and file systems.
+        </p>
+        <div class="project-stack">
+          <span>BERT</span><span>HDBSCAN</span><span>C</span><span>OS Internals</span>
         </div>
       </div>
 
@@ -1050,12 +756,12 @@
   <div class="wrap">
     <div class="section-head">
       <span class="section-tag">[Published]</span>
-      <h2>Publications &amp; Research Output</h2>
+      <h2>Publications</h2>
     </div>
 
     <div class="pub-list">
 
-      <a class="pub-item pub-ieee" href="https://ieeexplore.ieee.org/document/11573709" target="_blank" rel="noopener" data-cite="Chufare, A. T., Tiruneh, R., & Juja, S. B. Cyberbiosecurity Risk Assessment Framework for Genomic Data Storage in Cloud Environments. IEEE SPW, May 2026.">
+      <a class="pub-item pub-ieee" href="https://ieeexplore.ieee.org/document/11573709" target="_blank" rel="noopener" data-cite="Chufare, A. T., Tiruneh, R., & Juja, S. B. Cyberbiosecurity Risk Assessment Framework for Genomic Data Storage in Cloud Environments. 2026 IEEE Symposium on Security and Privacy Workshops (SPW), May 2026.">
         <span class="pub-index">01</span>
         <div class="pub-main">
           <div class="pub-top">
@@ -1065,7 +771,7 @@
           <h3>Cyberbiosecurity Risk Assessment Framework for Genomic Data Storage in Cloud Environments
             <svg class="pub-ext" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </h3>
-          <p class="pub-venue">Authors: A. T. Chufare, Ribka Tiruneh &amp; S. B. Juja · IEEE SPW · May 2026 (coauthor)</p>
+          <p class="pub-venue">A. T. Chufare, R. Tiruneh &amp; S. B. Juja · 2026 IEEE Symposium on Security and Privacy Workshops · May 2026</p>
         </div>
         <button class="pub-cite" type="button" aria-label="Copy citation">
           <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M5 15V6a2 2 0 0 1 2-2h9" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
@@ -1073,11 +779,11 @@
         </button>
       </a>
 
-      <a class="pub-item pub-thesis" href="#" target="_blank" rel="noopener" data-cite="R. Tiruneh, Pattern Formation and Retrieval in a Reduced-Scale CA3-Inspired Neural Network. M.S. Thesis, The George Washington University, 2026. ProQuest Dissertations & Theses Global.">
+      <a class="pub-item pub-thesis" href="#" data-cite="R. Tiruneh. Pattern Formation and Retrieval in a Reduced-Scale CA3-Inspired Neural Network. M.S. Thesis, The George Washington University, 2026. ProQuest Dissertations & Theses Global.">
         <span class="pub-index">02</span>
         <div class="pub-main">
           <div class="pub-top">
-            <span class="pub-status">Published</span>
+            <span class="pub-status">Indexed</span>
             <span class="pub-publisher">ProQuest</span>
           </div>
           <h3>Pattern Formation and Retrieval in a Reduced-Scale CA3-Inspired Neural Network
@@ -1095,50 +801,138 @@
   </div>
 </section>
 
-<script>
-document.querySelectorAll('#research .pub-cite').forEach(function (btn) {
-  btn.addEventListener('click', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    var card = btn.closest('.pub-item');
-    var text = card.getAttribute('data-cite');
-    navigator.clipboard.writeText(text).then(function () {
-      var label = btn.querySelector('span');
-      var original = label.textContent;
-      label.textContent = 'Copied';
-      btn.classList.add('copied');
-      setTimeout(function () {
-        label.textContent = original;
-        btn.classList.remove('copied');
-      }, 1600);
-    });
-  });
-});
-</script>
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">[Capabilities]</span>
+      <h2>Skills &amp; Domain Expertise</h2>
+    </div>
 
-<section id="highlights">
+    <div class="skills-grid">
+
+      <div class="skill-group priority">
+        <div class="skill-group-label">
+          <h3>Neural Simulation &amp; Modeling</h3>
+          <span class="skill-weight">PRIMARY</span>
+        </div>
+        <div class="chip-row">
+          <span class="chip">CARLsim</span>
+          <span class="chip">Spiking Neural Networks</span>
+          <span class="chip">Izhikevich Dynamics</span>
+          <span class="chip">STDP</span>
+          <span class="chip">Short-Term Plasticity</span>
+          <span class="chip">Spike-Train Analysis</span>
+          <span class="chip">Attractor Dynamics</span>
+        </div>
+      </div>
+
+      <div class="skill-group priority">
+        <div class="skill-group-label">
+          <h3>Machine Learning</h3>
+          <span class="skill-weight">PRIMARY</span>
+        </div>
+        <div class="chip-row">
+          <span class="chip">PyTorch</span>
+          <span class="chip">Transformers &amp; LLM Fine-Tuning</span>
+          <span class="chip">BERT</span>
+          <span class="chip">Graph Neural Networks</span>
+          <span class="chip">Autoencoders</span>
+          <span class="chip">Tree Ensembles</span>
+          <span class="chip">Reinforcement Learning</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">
+          <h3>Programming</h3>
+          <span class="skill-weight">SUPPORTING</span>
+        </div>
+        <div class="chip-row">
+          <span class="chip">Python</span>
+          <span class="chip">C++</span>
+          <span class="chip">C</span>
+          <span class="chip">MATLAB</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Linux / bash</span>
+          <span class="chip">Git</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">
+          <h3>Signal Processing</h3>
+          <span class="skill-weight">SUPPORTING</span>
+        </div>
+        <div class="chip-row">
+          <span class="chip">Spectral &amp; Time-Frequency Analysis</span>
+          <span class="chip">Filterbank Design</span>
+          <span class="chip">MFCC / Mel-Spectrogram</span>
+          <span class="chip">Phase &amp; Waveform Reconstruction</span>
+          <span class="chip">SciPy · Librosa · Torchaudio</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">
+          <h3>Statistics &amp; Optimization</h3>
+          <span class="skill-weight">SUPPORTING</span>
+        </div>
+        <div class="chip-row">
+          <span class="chip">Stochastic Processes</span>
+          <span class="chip">Regression</span>
+          <span class="chip">Objective &amp; Evaluation Design</span>
+          <span class="chip">Derivative-Free / Evolutionary Optimization</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">
+          <h3>Systems &amp; Cloud</h3>
+          <span class="skill-weight">SUPPORTING</span>
+        </div>
+        <div class="chip-row">
+          <span class="chip">GCP</span>
+          <span class="chip">AWS</span>
+          <span class="chip">FastAPI</span>
+          <span class="chip">WebSocket</span>
+          <span class="chip">WebRTC</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">GPU-Accelerated Computation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
   <div class="wrap">
     <div class="section-head">
       <span class="section-tag">[Verified]</span>
-      <h2>Education &amp; Research Highlights</h2>
+      <h2>Education &amp; Honors</h2>
     </div>
 
     <div class="cert-cols">
       <div>
         <h3>Education</h3>
-        <ul class="cert-list">
-          <li>M.S. Electrical Engineering — The George Washington University, GPA 3.97/4.0 (Aug 2024 – May 2026)</li>
-          <li>Coursework: Pattern Recognition &amp; Machine Learning, Stochastic Processes, Signals &amp; Transforms, Machine Intelligence, Linear Systems, Communication Theory</li>
-          <li>B.S. Computer Science, Semi-minor in AI, Double major in Business &amp; Technology Management — KAIST (Aug 2017 – Feb 2022)</li>
-        </ul>
+        <div class="edu-item">
+          <div class="edu-degree">M.S. Electrical Engineering · GPA <span class="metric">3.97 / 4.0</span></div>
+          <div class="edu-school">The George Washington University, Washington, DC · May 2026</div>
+          <div class="edu-note">Thesis advised by Prof. Gina C. Adam. Coursework: Pattern Recognition &amp; Machine Learning, Stochastic Processes, Signals &amp; Transforms, Linear Systems Theory, Machine Intelligence, Big Data &amp; Cloud Computing.</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">B.S. Computer Science</div>
+          <div class="edu-school">KAIST, Daejeon, South Korea · Feb 2022</div>
+          <div class="edu-note">Semi-minor in Artificial Intelligence. Double major in Business &amp; Technology Management. Coursework: NLP, Text Mining, Operating Systems, Computer Networks, Systems Programming, HCI.</div>
+        </div>
       </div>
       <div>
-        <h3>Research Highlights</h3>
+        <h3>Honors &amp; Awards</h3>
         <ul class="award-list">
-          <li>91% peak reconstruction accuracy in graduate thesis research on attractor-based pattern completion</li>
-          <li>Thesis indexed in ProQuest Dissertations &amp; Theses Global</li>
-          <li>Coauthor, IEEE SPW publication on cyberbiosecurity risk assessment</li>
-          <li>Production LLM fine-tuning and real-time serving experience (Llama 3, FastAPI, GCP)</li>
+          <li>Lim Mi-sook Scholarship, KAIST, 2021</li>
+          <li>Yoon-Kim Award, KAIST, 2020</li>
+          <li>Line Scholarship, KAIST, 2019</li>
+          <li>KAIST Full-Ride Scholarship, 2017 – 2021</li>
         </ul>
       </div>
     </div>
@@ -1148,22 +942,22 @@ document.querySelectorAll('#research .pub-cite').forEach(function (btn) {
 <footer class="contact" id="contact">
   <div class="wrap">
     <span class="section-tag">[Contact]</span>
-    <h2 style="margin-top:16px;">Ready to build what learns.</h2>
-    <p>M.S. Electrical Engineering, The George Washington University — deep learning engineer with production
-    experience shipping neural networks to real users. Based in Washington, D.C., reachable on every channel below.</p>
+    <h2>Building systems that learn the way brains do.</h2>
+    <p>Machine learning engineer and computational neuroscience researcher based in the Washington, D.C. area.
+    Open to ML/AI engineering roles and research positions in computational neuroscience.</p>
 
     <div class="case-strip">
       <div class="case-stat">
         <span class="case-num">91%</span>
-        <span class="case-label">Peak reconstruction accuracy<br>in graduate thesis research</span>
+        <span class="case-label">Peak reconstruction accuracy,<br>DOE-funded thesis research</span>
       </div>
       <div class="case-stat">
         <span class="case-num">2</span>
-        <span class="case-label">Countries of applied AI<br>research experience</span>
+        <span class="case-label">Publications: IEEE SPW 2026<br>&amp; ProQuest-indexed thesis</span>
       </div>
       <div class="case-stat">
-        <span class="case-num">2</span>
-        <span class="case-label">Peer-reviewed publications<br>&amp; thesis outputs</span>
+        <span class="case-num">4</span>
+        <span class="case-label">Research &amp; industry positions<br>across the U.S. and South Korea</span>
       </div>
     </div>
 
@@ -1194,20 +988,133 @@ document.querySelectorAll('#research .pub-cite').forEach(function (btn) {
 </footer>
 
 <script>
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  if (navToggle) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', isOpen);
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+/* ---- Spike raster hero animation ----
+   Rows are "neurons"; amber ticks are spikes sweeping left as time advances,
+   echoing the spike raster plots from the CA3 thesis. Static frame when
+   reduced motion is preferred. */
+(function () {
+  var canvas = document.getElementById('raster');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var ROWS = 26;
+  var spikes = [];      // { row, x } in css pixels
+  var speed = 22;       // px per second leftward drift
+  var lastT = 0;
+  var W = 0, H = 0, dpr = 1;
+
+  function resize() {
+    dpr = window.devicePixelRatio || 1;
+    W = canvas.clientWidth = canvas.offsetWidth;
+    H = canvas.clientHeight = canvas.offsetHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
+
+  function rowY(r) { return (H / (ROWS + 1)) * (r + 1); }
+
+  function seed() {
+    spikes = [];
+    for (var r = 0; r < ROWS; r++) {
+      // Sparse, Poisson-like spacing; some rows fire more than others
+      var rate = 0.4 + Math.random() * 2.2;
+      var x = Math.random() * 80;
+      while (x < W + 120) {
+        x += 40 + Math.random() * (420 / rate);
+        spikes.push({ row: r, x: x });
+      }
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // faint row guides
+    ctx.strokeStyle = 'rgba(243,241,234,0.05)';
+    ctx.lineWidth = 1;
+    for (var r = 0; r < ROWS; r++) {
+      var y = rowY(r);
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(W, y);
+      ctx.stroke();
+    }
+
+    // spikes as vertical ticks
+    for (var i = 0; i < spikes.length; i++) {
+      var s = spikes[i];
+      var y2 = rowY(s.row);
+      var glow = 0.55 + 0.45 * Math.sin((s.x + s.row * 37) * 0.05);
+      ctx.strokeStyle = 'rgba(224,166,58,' + (0.35 + 0.4 * glow) + ')';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(s.x, y2 - 5);
+      ctx.lineTo(s.x, y2 + 5);
+      ctx.stroke();
+    }
+  }
+
+  function tick(t) {
+    if (!lastT) lastT = t;
+    var dt = Math.min((t - lastT) / 1000, 0.05);
+    lastT = t;
+
+    for (var i = 0; i < spikes.length; i++) {
+      spikes[i].x -= speed * dt;
+      if (spikes[i].x < -20) {
+        spikes[i].x = W + 20 + Math.random() * 160;
+        spikes[i].row = Math.floor(Math.random() * ROWS);
+      }
+    }
+    draw();
+    requestAnimationFrame(tick);
+  }
+
+  resize();
+  seed();
+  draw();
+  if (!reduced) requestAnimationFrame(tick);
+  window.addEventListener('resize', function () { resize(); seed(); draw(); });
+})();
+
+/* ---- Citation copy buttons ---- */
+document.querySelectorAll('#research .pub-cite').forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var card = btn.closest('.pub-item');
+    var text = card.getAttribute('data-cite');
+    navigator.clipboard.writeText(text).then(function () {
+      var label = btn.querySelector('span');
+      var original = label.textContent;
+      label.textContent = 'Copied';
+      btn.classList.add('copied');
+      setTimeout(function () {
+        label.textContent = original;
+        btn.classList.remove('copied');
+      }, 1600);
+    });
+  });
+});
+
+/* ---- Mobile nav ---- */
+(function () {
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  if (!navToggle) return;
+  navToggle.addEventListener('click', function () {
+    var isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
 </script>
 
 </body>
